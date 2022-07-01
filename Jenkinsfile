@@ -21,18 +21,5 @@ pipeline {
                 """                
             }
         }
-        stage('Test'){
-
-        }
-        stage('Deploy'){
-            sh """
-            docker-compose docker-compose.yaml up 
-            """
-        }
-        post {
-            success{
-
-            }
-        }
     }
 }
