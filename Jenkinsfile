@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'python:2-alpine'
+                    image 'python
                 }
             }
             steps {
@@ -12,10 +12,7 @@ pipeline {
                 git 'https://github.com/2206-devops-batch/AlexS-project1.git'
 
                 // Run env.
-                sh """
-                python -m venv .venv
-                pip install -r requirements.txt
-                """                
+                sh 'python -m venv .venv'               
             }
         }
     }

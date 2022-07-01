@@ -1,5 +1,5 @@
 # Pull an official base image
-FROM python:3.10.5-slim-bullseye
+FROM python
 
 # Setting work directory
 WORKDIR /web-app
