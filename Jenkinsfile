@@ -7,6 +7,7 @@ pipeline {
                 // Get some code from a GitHub repository
                 git 'https://github.com/2206-devops-batch/AlexS-project1.git'
 
+                //install python
                 sh "pip install python"
                 // Run env.
                 sh "python -m venv .venv"
