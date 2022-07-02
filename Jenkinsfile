@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Deploy') {
             steps{
-                sh 'echo passed deploy'
+                sh 'docker-compose up'
             }
         }
     }
