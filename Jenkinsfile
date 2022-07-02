@@ -18,5 +18,10 @@ pipeline {
                 sh 'python -m venv .venv'               
             }
         }
+        stage('Test') {
+            steps {
+                echo "passed test"
+            }
+        }
     }
 }
