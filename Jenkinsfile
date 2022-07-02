@@ -7,7 +7,7 @@ pipeline {
                 git 'https://github.com/2206-devops-batch/AlexS-project1.git'
 
                 // Run env.
-                sh 'python -m venv .venv'               
+                sh 'python3 -m venv .venv'               
             }
         }
         stage('Test') {
