@@ -8,6 +8,7 @@ WORKDIR /web-app
 COPY ./requirements.txt /web-app/requirements.txt
 
 RUN pip install -r requirements.txt
+RUN export FLASK_APP=app.py
 
 # Copy src files
 COPY . /web-app

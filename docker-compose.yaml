@@ -2,19 +2,21 @@ version: '3.4'
 
 services:
   webapp:
-    image: web-app
+    image: web
     build:
       context: .
       dockerfile: ./Dockerfile
     ports:
       - "5000:5000"
     networks:
-      - db-connect
+      - db-network
   db:
     image: postgres
     restart: always
+    environment:
+      POSTGRES_PASSWORD: example
     networks:
-      - db-connect
+      - db-network
 
 networks:
-  db-connect:
+  db-network:
