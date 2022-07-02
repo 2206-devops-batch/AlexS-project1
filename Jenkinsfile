@@ -1,6 +1,7 @@
 pipeline {
     agent none
-    stages {
+    stages {       
+
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
@@ -13,11 +14,6 @@ pipeline {
         stage('Test') {
             steps {
                 echo "passed test"
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh 'python web.py'
             }
         }
     }
