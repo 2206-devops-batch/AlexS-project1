@@ -1,23 +1,29 @@
 pipeline {
     agent any
     stages { 
-        stage('Build') {
+        stage('Grab Repo') {
             steps {
                 // Get some code from a GitHub repository
                 git 'https://github.com/2206-devops-batch/AlexS-project1.git'
-
-                // Run env.
-                sh 'pip install -r requirements.txt'               
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'docker build -t salyx21/web-app:1.0 .'
             }
         }
         stage('Test') {
             steps {
-                sh 'echo passed test'
+                echo 'passed test'
             }
         }
         stage('Deploy') {
             steps{
-                sh 'docker-compose up'
+                withCredentials([string(credentialsId: 'docker-password', variable: 'docker-pass')]) {
+                    sh "docker login -u salyx21 -p ${docker-pass}"                    
+                }
+
+                sh 'docker push salyx21/web-app:1.0'
             }
         }
     }
