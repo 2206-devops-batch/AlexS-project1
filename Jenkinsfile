@@ -20,10 +20,9 @@ pipeline {
         }
         stage('Deploy') {
             steps{
-                withCredentials([string(credentialsId: 'docker-password', variable: 'docker-pass')]) {
-                    // sh "docker login -u salyx21 -p ${docker-pass}"   
-                    echo 'passed the credentials'                 
-                }                    
+                withCredentials([string(credentialsId: 'dockerHubpass', variable: 'dockerHubpassword')]) {
+                    sh "docker login -u salyx21 -p ${dockerHubpassword}"
+                }                 
                 sh 'docker push salyx21/web-app:1.0'
             }
         }
