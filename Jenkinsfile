@@ -15,7 +15,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'passed test'
+                sh 'pip install -r requirements-dev.txt'
+                sh 'python3 -m pytest unittest.py'
             }
         }
         stage('Deploy') {
@@ -23,7 +24,7 @@ pipeline {
                 withCredentials([string(credentialsId: 'dockerHubpass', variable: 'dockerHubpassword')]) {
                     sh "docker login -u salyx21 -p ${dockerHubpassword}"
                 }                 
-                sh 'docker push salyx21/web-app:1.0'
+                sh 'docker push salyx21/web-app:1.1'
             }
         }
     }

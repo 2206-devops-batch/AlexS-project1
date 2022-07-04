@@ -1,3 +1,5 @@
 # AlexS-project1
 
-TESTING PIPELINE number2
+CI/CD pipeline for web app
+
+<img src ="./flowchart/pipeline_flowchart.png" title="Flowchart">
