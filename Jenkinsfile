@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'docker --version'
-                sh 'docker build -t salyx21/web-app:1.1 .'
+                sh 'docker build -t salyx21/web-app:1.2 .'
             }
         }
         stage('Test') {
@@ -24,7 +24,7 @@ pipeline {
                 withCredentials([string(credentialsId: 'dockerHubpass', variable: 'dockerHubpassword')]) {
                     sh "docker login -u salyx21 -p ${dockerHubpassword}"
                 }                 
-                sh 'docker push salyx21/web-app:1.1'
+                sh 'docker push salyx21/web-app:1.2'
             }
         }
     }

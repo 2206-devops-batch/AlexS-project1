@@ -13,5 +13,6 @@ RUN export FLASK_APP=app.py
 # Copy src files
 COPY . /web-app
 
+EXPOSE 5000
 # Run Server
 CMD ["flask", "run", "--host=0.0.0.0"]
